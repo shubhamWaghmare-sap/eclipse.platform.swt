@@ -1392,7 +1392,7 @@ public class CTabFolderRenderer {
 			int xDraw = x - trim.x;
 			if (parent.single && (parent.showClose || item.showClose)) xDraw += item.closeRect.width;
 			Image image = item.getImage();
-			if (image != null && !image.isDisposed()) {
+			if (image != null && !image.isDisposed() && parent.showImage) {
 				Rectangle imageBounds = image.getBounds();
 				// only draw image if it won't overlap with close button
 				int maxImageWidth = rightEdge - xDraw - (trim.width + trim.x);
@@ -1600,7 +1600,7 @@ public class CTabFolderRenderer {
 			Rectangle trim = computeTrim(index, SWT.NONE, 0, 0, 0, 0);
 			int xDraw = x - trim.x;
 			Image image = item.getImage();
-			if (image != null && !image.isDisposed() && parent.showUnselectedImage) {
+			if (image != null && !image.isDisposed() && parent.showUnselectedImage && parent.showImage) {
 				Rectangle imageBounds = image.getBounds();
 				// only draw image if it won't overlap with close button
 				int maxImageWidth = x + width - xDraw - (trim.width + trim.x);
